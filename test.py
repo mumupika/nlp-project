@@ -139,11 +139,12 @@ if __name__=='__main__':
 
     device = "cpu"
     base_dir = './model/input/qwen2.5/transformers/0.5b/1'
-    checkpoint_dir ='./output/checkpoint-4500'
+    checkpoint_dir ='./output/checkpoint-36000'
+    ##### fine-tuned
     tokenizer = AutoTokenizer.from_pretrained(checkpoint_dir)
     model = AutoModelForCausalLM.from_pretrained(checkpoint_dir)
-    input_seqs = ["You are now given a task with instructions and inputs. Instructions: give me 3 advice to stay health. Input:"]
-    inputs = tokenizer(input_seqs, padding='max_length',padding_side='left',return_tensors="pt",max_length = 784)
+    input_seqs = ["Instructions: Give me 3 ways to keep healthy. Input:"]
+    inputs = tokenizer(input_seqs, padding='max_length',padding_side='left',return_tensors="pt",max_length = 800)
     generated_ids = model.generate(
         **inputs,
         pad_token_id=tokenizer.eos_token_id,
@@ -159,4 +160,23 @@ if __name__=='__main__':
         clean_up_tokenization_spaces=False
     )
     print(generated_text)
-    
+    ##### base
+    tokenizer = AutoTokenizer.from_pretrained(base_dir)
+    model = AutoModelForCausalLM.from_pretrained(base_dir)
+    input_seqs = ["Instructions: Give me 3 ways to keep healthy. Input:"]
+    inputs = tokenizer(input_seqs, padding='max_length',padding_side='left',return_tensors="pt",max_length = 800)
+    generated_ids = model.generate(
+        **inputs,
+        pad_token_id=tokenizer.eos_token_id,
+        max_new_tokens=2048,
+        top_p=0.95,
+        temperature=0.9,
+        do_sample=True
+    )
+
+    generated_text = tokenizer.batch_decode(
+        generated_ids,
+        skip_special_tokens=True,
+        clean_up_tokenization_spaces=False
+    )
+    print(generated_text)
