@@ -123,16 +123,40 @@ def finetune():
     trainer.train()
 
 if __name__=='__main__':
-    sys.argv = [
-    "--model_name_or_path", "./model/input/qwen2.5/transformers/0.5b/1",
-    "--torch_dtype", "bfloat16",
-    "--output_dir","./output",
-    "--dataset_path","./Dataset/alpaca-language-instruction-training",
-    "--remove_unused_columns", "False",
-    "--per_device_train_batch_size", "4",
-    "--do_train", "True",
-    "--dataloader_pin_memory","False"
-    ]
-    finetune()
-    
+    # sys.argv = [
+    # "--model_name_or_path", "./model/input/qwen2.5/transformers/0.5b/1",
+    # "--torch_dtype", "bfloat16",
+    # "--output_dir","./output",
+    # "--dataset_path","./Dataset/alpaca-language-instruction-training",
+    # "--remove_unused_columns", "False",
+    # "--per_device_train_batch_size", "8",
+    # "--do_train", "True",
+    # "--dataloader_pin_memory","False",
+    # "--logging_dir","./log"
+    # ]
+    # finetune()
+    ### test for inference.
+
+    device = "cpu"
+    base_dir = './model/input/qwen2.5/transformers/0.5b/1'
+    checkpoint_dir ='./output/checkpoint-4500'
+    tokenizer = AutoTokenizer.from_pretrained(checkpoint_dir)
+    model = AutoModelForCausalLM.from_pretrained(checkpoint_dir)
+    input_seqs = ["You are now given a task with instructions and inputs. Instructions: give me 3 advice to stay health. Input:"]
+    inputs = tokenizer(input_seqs, padding='max_length',padding_side='left',return_tensors="pt",max_length = 784)
+    generated_ids = model.generate(
+        **inputs,
+        pad_token_id=tokenizer.eos_token_id,
+        max_new_tokens=2048,
+        top_p=0.95,
+        temperature=0.9,
+        do_sample=True
+    )
+
+    generated_text = tokenizer.batch_decode(
+        generated_ids,
+        skip_special_tokens=True,
+        clean_up_tokenization_spaces=False
+    )
+    print(generated_text)
     
