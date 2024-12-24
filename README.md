@@ -59,3 +59,54 @@ We will provide links for our **output-loss only finetuned** model and **whole s
 1. The finetune-evaluation code is `finetune_masked.ipynb` and `finetuned_unmasked.ipynb`, for the previous one is for output loss only finetune and the second one is for whole sequence loss calculation.
 2. Logs during training process was in `tensorboard_events`.
 3. The final evaluation results was in `evaluation_results`. The final statistical tables and pictures was in `assets`.
+4. After you downloaded the model, you can put the model at the following structure:
+
+```c
+.
+├── input       // The base model.
+│   └── qwen2.5
+│       └── transformers
+│           └── 0.5b
+│               └── 1
+│                   ├── LICENSE
+│                   ├── README.md
+│                   ├── config.json
+│                   ├── generation_config.json
+│                   ├── merges.txt
+│                   ├── model.safetensors
+│                   ├── tokenizer.json
+│                   ├── tokenizer_config.json
+│                   └── vocab.json
+├── masked      // The output-only model.
+│   └── checkpoint-38820
+│       ├── added_tokens.json
+│       ├── config.json
+│       ├── generation_config.json
+│       ├── merges.txt
+│       ├── model.safetensors
+│       ├── optimizer.pt
+│       ├── rng_state.pth
+│       ├── scheduler.pt
+│       ├── special_tokens_map.json
+│       ├── tokenizer.json
+│       ├── tokenizer_config.json
+│       ├── trainer_state.json
+│       ├── training_args.bin
+│       └── vocab.json
+└── unmasked        // The whole seq loss.
+    └── checkpoint-38820
+        ├── added_tokens.json
+        ├── config.json
+        ├── generation_config.json
+        ├── merges.txt
+        ├── model.safetensors
+        ├── optimizer.pt
+        ├── rng_state.pth
+        ├── scheduler.pt
+        ├── special_tokens_map.json
+        ├── tokenizer.json
+        ├── tokenizer_config.json
+        ├── trainer_state.json
+        ├── training_args.bin
+        └── vocab.json
+```
