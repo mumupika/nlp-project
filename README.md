@@ -1,2 +1,55 @@
-# Readme
-No readme. Read what? FUXX it!
+# Supervised Finetune Training
+
+This is the Introduction of our repository, for the project-1 of natural language process (CS3602).
+
+## File Structure
+
+```c
+.
+├── Dataset
+│   └── // gitignored. Using alpaca-cleaned.
+├── README.md
+├── assets
+│   ├── Comparison.png
+│   └── Dataset_results.xlsx
+├── auto_clean.py   // cleaning checkpoints during training.
+├── eval.py         // To use for some case-study.
+├── evaluation_results
+│   ├── base_eval   // base model evaluation results.
+│   │   └── 20241223_180428
+│   │       └── summary
+│   │           ├── summary_20241223_180428.csv
+│   │           ├── summary_20241223_180428.md
+│   │           └── summary_20241223_180428.txt
+│   ├── evals_masked_sft    // output loss only results.
+│   │   └── 20241223_174211
+│   │       └── summary
+│   │           ├── summary_20241223_174211.csv
+│   │           ├── summary_20241223_174211.md
+│   │           └── summary_20241223_174211.txt
+│   └── evals_unmasked_sft  // whole sequence loss results.
+│       └── 20241224_171102
+│           └── summary
+│               ├── summary_20241224_171102.csv
+│               ├── summary_20241224_171102.md
+│               └── summary_20241224_171102.txt
+├── finetune_masked.ipynb   // calculate output loss only.
+├── finetune_unmasked.ipynb // calculate the whole sequence.
+├── model
+│   ├── // Will be given by outer link.
+├── report.pdf
+└── tensorboard_events
+    ├── masked_finetune_tfb // output loss only result.
+    │   └── events.out.tfevents.1734937325.autodl-container-eac843a08e-1b614e77.19787.15
+    └── unmasked_finetune_tfb   // whole sequence loss result.
+        └── events.out.tfevents.1735021534.autodl-container-86b04fa436-52cbd070.3065.0
+
+```
+
+## Finetuned model link
+
+We will provide links for our **output-loss only finetuned** model and **whole sequence model** by the following links(named **masked** and **unmasked**):
+
+[download links by Baidu NetDisk, password 1234](https://pan.baidu.com/s/1o4LLaOw-bQMsreTjEfXlOQ?pwd=1234)
+
+[download links by SJTU jBox, students and staff only](https://jbox.sjtu.edu.cn/l/q1hwDo)

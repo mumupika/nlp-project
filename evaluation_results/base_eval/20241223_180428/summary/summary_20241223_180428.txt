@@ -1,0 +1,311 @@
+20241223_180428
+tabulate format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+dataset                                            version    metric                                   mode      1_hf
+-------------------------------------------------  ---------  ---------------------------------------  ------  ------
+lukaemon_mmlu_college_biology                      0eddf6     accuracy                                 ppl      43.75
+lukaemon_mmlu_college_chemistry                    9e2300     accuracy                                 ppl      43.00
+lukaemon_mmlu_college_computer_science             5a1625     accuracy                                 ppl      44.00
+lukaemon_mmlu_college_mathematics                  13e9be     accuracy                                 ppl      32.00
+lukaemon_mmlu_college_physics                      f05705     accuracy                                 ppl      29.41
+lukaemon_mmlu_electrical_engineering               87e5d9     accuracy                                 ppl      53.10
+lukaemon_mmlu_astronomy                            69352a     accuracy                                 ppl      53.29
+lukaemon_mmlu_anatomy                              a367fc     accuracy                                 ppl      42.96
+lukaemon_mmlu_abstract_algebra                     45f14f     accuracy                                 ppl      39.00
+lukaemon_mmlu_machine_learning                     16eb9e     accuracy                                 ppl      35.71
+lukaemon_mmlu_clinical_knowledge                   b9517f     accuracy                                 ppl      55.09
+lukaemon_mmlu_global_facts                         45ca5d     accuracy                                 ppl      28.00
+lukaemon_mmlu_management                           f1f94e     accuracy                                 ppl      63.11
+lukaemon_mmlu_nutrition                            e8c66b     accuracy                                 ppl      58.17
+lukaemon_mmlu_marketing                            6b54fd     accuracy                                 ppl      75.64
+lukaemon_mmlu_professional_accounting              aa502e     accuracy                                 ppl      37.94
+lukaemon_mmlu_high_school_geography                c5312c     accuracy                                 ppl      60.10
+lukaemon_mmlu_international_law                    c502b5     accuracy                                 ppl      69.42
+lukaemon_mmlu_moral_scenarios                      9dab41     accuracy                                 ppl      24.02
+lukaemon_mmlu_computer_security                    557e7e     accuracy                                 ppl      70.00
+lukaemon_mmlu_high_school_microeconomics           9405bf     accuracy                                 ppl      51.26
+lukaemon_mmlu_professional_law                     f36e47     accuracy                                 ppl      35.98
+lukaemon_mmlu_medical_genetics                     038ad3     accuracy                                 ppl      54.00
+lukaemon_mmlu_professional_psychology              429c8f     accuracy                                 ppl      45.92
+lukaemon_mmlu_jurisprudence                        ae7f17     accuracy                                 ppl      59.26
+lukaemon_mmlu_world_religions                      904875     accuracy                                 ppl      59.06
+lukaemon_mmlu_philosophy                           c9014a     accuracy                                 ppl      49.52
+lukaemon_mmlu_virology                             611723     accuracy                                 ppl      41.57
+lukaemon_mmlu_high_school_chemistry                a25dca     accuracy                                 ppl      48.28
+lukaemon_mmlu_public_relations                     02be4e     accuracy                                 ppl      48.18
+lukaemon_mmlu_high_school_macroeconomics           267c80     accuracy                                 ppl      46.92
+lukaemon_mmlu_human_sexuality                      9a9941     accuracy                                 ppl      54.96
+lukaemon_mmlu_elementary_mathematics               197da6     accuracy                                 ppl      40.21
+lukaemon_mmlu_high_school_physics                  777e6e     accuracy                                 ppl      37.09
+lukaemon_mmlu_high_school_computer_science         1bae4a     accuracy                                 ppl      55.00
+lukaemon_mmlu_high_school_european_history         ad843a     accuracy                                 ppl      59.39
+lukaemon_mmlu_business_ethics                      83933d     accuracy                                 ppl      49.00
+lukaemon_mmlu_moral_disputes                       2a78ed     accuracy                                 ppl      52.89
+lukaemon_mmlu_high_school_statistics               c6e690     accuracy                                 ppl      42.13
+lukaemon_mmlu_miscellaneous                        ab0a88     accuracy                                 ppl      54.92
+lukaemon_mmlu_formal_logic                         fa56ca     accuracy                                 ppl      34.92
+lukaemon_mmlu_high_school_government_and_politics  813526     accuracy                                 ppl      59.07
+lukaemon_mmlu_prehistory                           017963     accuracy                                 ppl      54.32
+lukaemon_mmlu_security_studies                     d60130     accuracy                                 ppl      65.31
+lukaemon_mmlu_high_school_biology                  6f158a     accuracy                                 ppl      55.16
+lukaemon_mmlu_logical_fallacies                    03a488     accuracy                                 ppl      54.60
+lukaemon_mmlu_high_school_world_history            7d5f06     accuracy                                 ppl      59.07
+lukaemon_mmlu_professional_medicine                cdcce1     accuracy                                 ppl      44.49
+lukaemon_mmlu_high_school_mathematics              eef511     accuracy                                 ppl      32.59
+lukaemon_mmlu_college_medicine                     21a6fb     accuracy                                 ppl      50.87
+lukaemon_mmlu_high_school_us_history               e73ee8     accuracy                                 ppl      54.90
+lukaemon_mmlu_sociology                            423c74     accuracy                                 ppl      71.64
+lukaemon_mmlu_econometrics                         efcf91     accuracy                                 ppl      29.82
+lukaemon_mmlu_high_school_psychology               971917     accuracy                                 ppl      63.30
+lukaemon_mmlu_human_aging                          406d1b     accuracy                                 ppl      50.67
+lukaemon_mmlu_us_foreign_policy                    ac2379     accuracy                                 ppl      74.00
+lukaemon_mmlu_conceptual_physics                   7f414f     accuracy                                 ppl      40.00
+hellaswag                                          47bff9     accuracy - clean                         ppl      46.57
+hellaswag                                          47bff9     accuracy - input contaminated            ppl      39.29
+hellaswag                                          47bff9     accuracy - input-and-label contaminated  ppl      51.06
+winogrande                                         c5cf57     accuracy                                 ll       54.38
+ARC-e                                              a450bd     accuracy                                 ppl      45.86
+ARC-c-test                                         a450bd     accuracy - clean                         ppl      29.36
+ARC-c-test                                         a450bd     accuracy - input contaminated            ppl      30.19
+ARC-c-test                                         a450bd     accuracy - input-and-label contaminated  ppl      33.45
+BoolQ                                              8ce714     accuracy                                 ppl      61.31
+mmlu-humanities                                    -          naive_average                            ppl      51.34
+mmlu-stem                                          -          naive_average                            ppl      44.04
+mmlu-social-science                                -          naive_average                            ppl      55.87
+mmlu-other                                         -          naive_average                            ppl      51.04
+mmlu                                               -          naive_average                            ppl      49.79
+mmlu-weighted                                      -          weighted_average                         ppl      47.86
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+-------------------------------------------------------------------------------------------------------------------------------- THIS IS A DIVIDER --------------------------------------------------------------------------------------------------------------------------------
+
+csv format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+dataset,version,metric,mode,1_hf
+lukaemon_mmlu_college_biology,0eddf6,accuracy,ppl,43.75
+lukaemon_mmlu_college_chemistry,9e2300,accuracy,ppl,43.00
+lukaemon_mmlu_college_computer_science,5a1625,accuracy,ppl,44.00
+lukaemon_mmlu_college_mathematics,13e9be,accuracy,ppl,32.00
+lukaemon_mmlu_college_physics,f05705,accuracy,ppl,29.41
+lukaemon_mmlu_electrical_engineering,87e5d9,accuracy,ppl,53.10
+lukaemon_mmlu_astronomy,69352a,accuracy,ppl,53.29
+lukaemon_mmlu_anatomy,a367fc,accuracy,ppl,42.96
+lukaemon_mmlu_abstract_algebra,45f14f,accuracy,ppl,39.00
+lukaemon_mmlu_machine_learning,16eb9e,accuracy,ppl,35.71
+lukaemon_mmlu_clinical_knowledge,b9517f,accuracy,ppl,55.09
+lukaemon_mmlu_global_facts,45ca5d,accuracy,ppl,28.00
+lukaemon_mmlu_management,f1f94e,accuracy,ppl,63.11
+lukaemon_mmlu_nutrition,e8c66b,accuracy,ppl,58.17
+lukaemon_mmlu_marketing,6b54fd,accuracy,ppl,75.64
+lukaemon_mmlu_professional_accounting,aa502e,accuracy,ppl,37.94
+lukaemon_mmlu_high_school_geography,c5312c,accuracy,ppl,60.10
+lukaemon_mmlu_international_law,c502b5,accuracy,ppl,69.42
+lukaemon_mmlu_moral_scenarios,9dab41,accuracy,ppl,24.02
+lukaemon_mmlu_computer_security,557e7e,accuracy,ppl,70.00
+lukaemon_mmlu_high_school_microeconomics,9405bf,accuracy,ppl,51.26
+lukaemon_mmlu_professional_law,f36e47,accuracy,ppl,35.98
+lukaemon_mmlu_medical_genetics,038ad3,accuracy,ppl,54.00
+lukaemon_mmlu_professional_psychology,429c8f,accuracy,ppl,45.92
+lukaemon_mmlu_jurisprudence,ae7f17,accuracy,ppl,59.26
+lukaemon_mmlu_world_religions,904875,accuracy,ppl,59.06
+lukaemon_mmlu_philosophy,c9014a,accuracy,ppl,49.52
+lukaemon_mmlu_virology,611723,accuracy,ppl,41.57
+lukaemon_mmlu_high_school_chemistry,a25dca,accuracy,ppl,48.28
+lukaemon_mmlu_public_relations,02be4e,accuracy,ppl,48.18
+lukaemon_mmlu_high_school_macroeconomics,267c80,accuracy,ppl,46.92
+lukaemon_mmlu_human_sexuality,9a9941,accuracy,ppl,54.96
+lukaemon_mmlu_elementary_mathematics,197da6,accuracy,ppl,40.21
+lukaemon_mmlu_high_school_physics,777e6e,accuracy,ppl,37.09
+lukaemon_mmlu_high_school_computer_science,1bae4a,accuracy,ppl,55.00
+lukaemon_mmlu_high_school_european_history,ad843a,accuracy,ppl,59.39
+lukaemon_mmlu_business_ethics,83933d,accuracy,ppl,49.00
+lukaemon_mmlu_moral_disputes,2a78ed,accuracy,ppl,52.89
+lukaemon_mmlu_high_school_statistics,c6e690,accuracy,ppl,42.13
+lukaemon_mmlu_miscellaneous,ab0a88,accuracy,ppl,54.92
+lukaemon_mmlu_formal_logic,fa56ca,accuracy,ppl,34.92
+lukaemon_mmlu_high_school_government_and_politics,813526,accuracy,ppl,59.07
+lukaemon_mmlu_prehistory,017963,accuracy,ppl,54.32
+lukaemon_mmlu_security_studies,d60130,accuracy,ppl,65.31
+lukaemon_mmlu_high_school_biology,6f158a,accuracy,ppl,55.16
+lukaemon_mmlu_logical_fallacies,03a488,accuracy,ppl,54.60
+lukaemon_mmlu_high_school_world_history,7d5f06,accuracy,ppl,59.07
+lukaemon_mmlu_professional_medicine,cdcce1,accuracy,ppl,44.49
+lukaemon_mmlu_high_school_mathematics,eef511,accuracy,ppl,32.59
+lukaemon_mmlu_college_medicine,21a6fb,accuracy,ppl,50.87
+lukaemon_mmlu_high_school_us_history,e73ee8,accuracy,ppl,54.90
+lukaemon_mmlu_sociology,423c74,accuracy,ppl,71.64
+lukaemon_mmlu_econometrics,efcf91,accuracy,ppl,29.82
+lukaemon_mmlu_high_school_psychology,971917,accuracy,ppl,63.30
+lukaemon_mmlu_human_aging,406d1b,accuracy,ppl,50.67
+lukaemon_mmlu_us_foreign_policy,ac2379,accuracy,ppl,74.00
+lukaemon_mmlu_conceptual_physics,7f414f,accuracy,ppl,40.00
+hellaswag,47bff9,accuracy - clean,ppl,46.57
+hellaswag,47bff9,accuracy - input contaminated,ppl,39.29
+hellaswag,47bff9,accuracy - input-and-label contaminated,ppl,51.06
+winogrande,c5cf57,accuracy,ll,54.38
+ARC-e,a450bd,accuracy,ppl,45.86
+ARC-c-test,a450bd,accuracy - clean,ppl,29.36
+ARC-c-test,a450bd,accuracy - input contaminated,ppl,30.19
+ARC-c-test,a450bd,accuracy - input-and-label contaminated,ppl,33.45
+BoolQ,8ce714,accuracy,ppl,61.31
+mmlu-humanities,-,naive_average,ppl,51.34
+mmlu-stem,-,naive_average,ppl,44.04
+mmlu-social-science,-,naive_average,ppl,55.87
+mmlu-other,-,naive_average,ppl,51.04
+mmlu,-,naive_average,ppl,49.79
+mmlu-weighted,-,weighted_average,ppl,47.86
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+markdown format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+| dataset | version | metric | mode | 1_hf |
+|----- | ----- | ----- | ----- | -----|
+| lukaemon_mmlu_college_biology | 0eddf6 | accuracy | ppl | 43.75 |
+| lukaemon_mmlu_college_chemistry | 9e2300 | accuracy | ppl | 43.00 |
+| lukaemon_mmlu_college_computer_science | 5a1625 | accuracy | ppl | 44.00 |
+| lukaemon_mmlu_college_mathematics | 13e9be | accuracy | ppl | 32.00 |
+| lukaemon_mmlu_college_physics | f05705 | accuracy | ppl | 29.41 |
+| lukaemon_mmlu_electrical_engineering | 87e5d9 | accuracy | ppl | 53.10 |
+| lukaemon_mmlu_astronomy | 69352a | accuracy | ppl | 53.29 |
+| lukaemon_mmlu_anatomy | a367fc | accuracy | ppl | 42.96 |
+| lukaemon_mmlu_abstract_algebra | 45f14f | accuracy | ppl | 39.00 |
+| lukaemon_mmlu_machine_learning | 16eb9e | accuracy | ppl | 35.71 |
+| lukaemon_mmlu_clinical_knowledge | b9517f | accuracy | ppl | 55.09 |
+| lukaemon_mmlu_global_facts | 45ca5d | accuracy | ppl | 28.00 |
+| lukaemon_mmlu_management | f1f94e | accuracy | ppl | 63.11 |
+| lukaemon_mmlu_nutrition | e8c66b | accuracy | ppl | 58.17 |
+| lukaemon_mmlu_marketing | 6b54fd | accuracy | ppl | 75.64 |
+| lukaemon_mmlu_professional_accounting | aa502e | accuracy | ppl | 37.94 |
+| lukaemon_mmlu_high_school_geography | c5312c | accuracy | ppl | 60.10 |
+| lukaemon_mmlu_international_law | c502b5 | accuracy | ppl | 69.42 |
+| lukaemon_mmlu_moral_scenarios | 9dab41 | accuracy | ppl | 24.02 |
+| lukaemon_mmlu_computer_security | 557e7e | accuracy | ppl | 70.00 |
+| lukaemon_mmlu_high_school_microeconomics | 9405bf | accuracy | ppl | 51.26 |
+| lukaemon_mmlu_professional_law | f36e47 | accuracy | ppl | 35.98 |
+| lukaemon_mmlu_medical_genetics | 038ad3 | accuracy | ppl | 54.00 |
+| lukaemon_mmlu_professional_psychology | 429c8f | accuracy | ppl | 45.92 |
+| lukaemon_mmlu_jurisprudence | ae7f17 | accuracy | ppl | 59.26 |
+| lukaemon_mmlu_world_religions | 904875 | accuracy | ppl | 59.06 |
+| lukaemon_mmlu_philosophy | c9014a | accuracy | ppl | 49.52 |
+| lukaemon_mmlu_virology | 611723 | accuracy | ppl | 41.57 |
+| lukaemon_mmlu_high_school_chemistry | a25dca | accuracy | ppl | 48.28 |
+| lukaemon_mmlu_public_relations | 02be4e | accuracy | ppl | 48.18 |
+| lukaemon_mmlu_high_school_macroeconomics | 267c80 | accuracy | ppl | 46.92 |
+| lukaemon_mmlu_human_sexuality | 9a9941 | accuracy | ppl | 54.96 |
+| lukaemon_mmlu_elementary_mathematics | 197da6 | accuracy | ppl | 40.21 |
+| lukaemon_mmlu_high_school_physics | 777e6e | accuracy | ppl | 37.09 |
+| lukaemon_mmlu_high_school_computer_science | 1bae4a | accuracy | ppl | 55.00 |
+| lukaemon_mmlu_high_school_european_history | ad843a | accuracy | ppl | 59.39 |
+| lukaemon_mmlu_business_ethics | 83933d | accuracy | ppl | 49.00 |
+| lukaemon_mmlu_moral_disputes | 2a78ed | accuracy | ppl | 52.89 |
+| lukaemon_mmlu_high_school_statistics | c6e690 | accuracy | ppl | 42.13 |
+| lukaemon_mmlu_miscellaneous | ab0a88 | accuracy | ppl | 54.92 |
+| lukaemon_mmlu_formal_logic | fa56ca | accuracy | ppl | 34.92 |
+| lukaemon_mmlu_high_school_government_and_politics | 813526 | accuracy | ppl | 59.07 |
+| lukaemon_mmlu_prehistory | 017963 | accuracy | ppl | 54.32 |
+| lukaemon_mmlu_security_studies | d60130 | accuracy | ppl | 65.31 |
+| lukaemon_mmlu_high_school_biology | 6f158a | accuracy | ppl | 55.16 |
+| lukaemon_mmlu_logical_fallacies | 03a488 | accuracy | ppl | 54.60 |
+| lukaemon_mmlu_high_school_world_history | 7d5f06 | accuracy | ppl | 59.07 |
+| lukaemon_mmlu_professional_medicine | cdcce1 | accuracy | ppl | 44.49 |
+| lukaemon_mmlu_high_school_mathematics | eef511 | accuracy | ppl | 32.59 |
+| lukaemon_mmlu_college_medicine | 21a6fb | accuracy | ppl | 50.87 |
+| lukaemon_mmlu_high_school_us_history | e73ee8 | accuracy | ppl | 54.90 |
+| lukaemon_mmlu_sociology | 423c74 | accuracy | ppl | 71.64 |
+| lukaemon_mmlu_econometrics | efcf91 | accuracy | ppl | 29.82 |
+| lukaemon_mmlu_high_school_psychology | 971917 | accuracy | ppl | 63.30 |
+| lukaemon_mmlu_human_aging | 406d1b | accuracy | ppl | 50.67 |
+| lukaemon_mmlu_us_foreign_policy | ac2379 | accuracy | ppl | 74.00 |
+| lukaemon_mmlu_conceptual_physics | 7f414f | accuracy | ppl | 40.00 |
+| hellaswag | 47bff9 | accuracy - clean | ppl | 46.57 |
+| hellaswag | 47bff9 | accuracy - input contaminated | ppl | 39.29 |
+| hellaswag | 47bff9 | accuracy - input-and-label contaminated | ppl | 51.06 |
+| winogrande | c5cf57 | accuracy | ll | 54.38 |
+| ARC-e | a450bd | accuracy | ppl | 45.86 |
+| ARC-c-test | a450bd | accuracy - clean | ppl | 29.36 |
+| ARC-c-test | a450bd | accuracy - input contaminated | ppl | 30.19 |
+| ARC-c-test | a450bd | accuracy - input-and-label contaminated | ppl | 33.45 |
+| BoolQ | 8ce714 | accuracy | ppl | 61.31 |
+| mmlu-humanities | - | naive_average | ppl | 51.34 |
+| mmlu-stem | - | naive_average | ppl | 44.04 |
+| mmlu-social-science | - | naive_average | ppl | 55.87 |
+| mmlu-other | - | naive_average | ppl | 51.04 |
+| mmlu | - | naive_average | ppl | 49.79 |
+| mmlu-weighted | - | weighted_average | ppl | 47.86 |
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+-------------------------------------------------------------------------------------------------------------------------------- THIS IS A DIVIDER --------------------------------------------------------------------------------------------------------------------------------
+
+raw format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
+Model: 1_hf
+lukaemon_mmlu_college_biology: {'accuracy': 43.75}
+lukaemon_mmlu_college_chemistry: {'accuracy': 43.0}
+lukaemon_mmlu_college_computer_science: {'accuracy': 44.0}
+lukaemon_mmlu_college_mathematics: {'accuracy': 32.0}
+lukaemon_mmlu_college_physics: {'accuracy': 29.411764705882355}
+lukaemon_mmlu_electrical_engineering: {'accuracy': 53.103448275862064}
+lukaemon_mmlu_astronomy: {'accuracy': 53.289473684210535}
+lukaemon_mmlu_anatomy: {'accuracy': 42.96296296296296}
+lukaemon_mmlu_abstract_algebra: {'accuracy': 39.0}
+lukaemon_mmlu_machine_learning: {'accuracy': 35.714285714285715}
+lukaemon_mmlu_clinical_knowledge: {'accuracy': 55.094339622641506}
+lukaemon_mmlu_global_facts: {'accuracy': 28.000000000000004}
+lukaemon_mmlu_management: {'accuracy': 63.10679611650486}
+lukaemon_mmlu_nutrition: {'accuracy': 58.16993464052288}
+lukaemon_mmlu_marketing: {'accuracy': 75.64102564102564}
+lukaemon_mmlu_professional_accounting: {'accuracy': 37.94326241134752}
+lukaemon_mmlu_high_school_geography: {'accuracy': 60.1010101010101}
+lukaemon_mmlu_international_law: {'accuracy': 69.42148760330579}
+lukaemon_mmlu_moral_scenarios: {'accuracy': 24.022346368715084}
+lukaemon_mmlu_computer_security: {'accuracy': 70.0}
+lukaemon_mmlu_high_school_microeconomics: {'accuracy': 51.26050420168067}
+lukaemon_mmlu_professional_law: {'accuracy': 35.98435462842243}
+lukaemon_mmlu_medical_genetics: {'accuracy': 54.0}
+lukaemon_mmlu_professional_psychology: {'accuracy': 45.91503267973856}
+lukaemon_mmlu_jurisprudence: {'accuracy': 59.25925925925925}
+lukaemon_mmlu_world_religions: {'accuracy': 59.06432748538012}
+lukaemon_mmlu_philosophy: {'accuracy': 49.51768488745981}
+lukaemon_mmlu_virology: {'accuracy': 41.566265060240966}
+lukaemon_mmlu_high_school_chemistry: {'accuracy': 48.275862068965516}
+lukaemon_mmlu_public_relations: {'accuracy': 48.18181818181818}
+lukaemon_mmlu_high_school_macroeconomics: {'accuracy': 46.92307692307692}
+lukaemon_mmlu_human_sexuality: {'accuracy': 54.961832061068705}
+lukaemon_mmlu_elementary_mathematics: {'accuracy': 40.21164021164021}
+lukaemon_mmlu_high_school_physics: {'accuracy': 37.086092715231786}
+lukaemon_mmlu_high_school_computer_science: {'accuracy': 55.00000000000001}
+lukaemon_mmlu_high_school_european_history: {'accuracy': 59.3939393939394}
+lukaemon_mmlu_business_ethics: {'accuracy': 49.0}
+lukaemon_mmlu_moral_disputes: {'accuracy': 52.89017341040463}
+lukaemon_mmlu_high_school_statistics: {'accuracy': 42.129629629629626}
+lukaemon_mmlu_miscellaneous: {'accuracy': 54.91698595146871}
+lukaemon_mmlu_formal_logic: {'accuracy': 34.92063492063492}
+lukaemon_mmlu_high_school_government_and_politics: {'accuracy': 59.067357512953365}
+lukaemon_mmlu_prehistory: {'accuracy': 54.32098765432099}
+lukaemon_mmlu_security_studies: {'accuracy': 65.3061224489796}
+lukaemon_mmlu_high_school_biology: {'accuracy': 55.16129032258065}
+lukaemon_mmlu_logical_fallacies: {'accuracy': 54.601226993865026}
+lukaemon_mmlu_high_school_world_history: {'accuracy': 59.07172995780591}
+lukaemon_mmlu_professional_medicine: {'accuracy': 44.48529411764706}
+lukaemon_mmlu_high_school_mathematics: {'accuracy': 32.592592592592595}
+lukaemon_mmlu_college_medicine: {'accuracy': 50.86705202312138}
+lukaemon_mmlu_high_school_us_history: {'accuracy': 54.90196078431373}
+lukaemon_mmlu_sociology: {'accuracy': 71.64179104477611}
+lukaemon_mmlu_econometrics: {'accuracy': 29.82456140350877}
+lukaemon_mmlu_high_school_psychology: {'accuracy': 63.30275229357798}
+lukaemon_mmlu_human_aging: {'accuracy': 50.672645739910315}
+lukaemon_mmlu_us_foreign_policy: {'accuracy': 74.0}
+lukaemon_mmlu_conceptual_physics: {'accuracy': 40.0}
+hellaswag: {'accuracy - clean': 46.573080099091655, 'accuracy - input contaminated': 39.285714285714285, 'accuracy - input-and-label contaminated': 51.06382978723404}
+winogrande: {'accuracy': 54.38042620363063}
+ARC-e: {'accuracy': 45.85537918871252}
+ARC-c-test: {'accuracy - clean': 29.362214199759322, 'accuracy - input contaminated': 30.18867924528302, 'accuracy - input-and-label contaminated': 33.45195729537366}
+BoolQ: {'accuracy': 61.31498470948012}
+mmlu-humanities: {'naive_average': 51.336162565217464}
+mmlu-stem: {'naive_average': 44.03626541493916}
+mmlu-social-science: {'naive_average': 55.87382157101575}
+mmlu-other: {'naive_average': 51.03566164034084}
+mmlu: {'naive_average': 49.789624849268264}
+mmlu-weighted: {'weighted_average': 47.85643070787637}
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
