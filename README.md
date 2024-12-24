@@ -7,7 +7,7 @@ This is the Introduction of our repository, for the project-1 of natural languag
 ```c
 .
 ├── Dataset
-│   └── // gitignored. Using alpaca-cleaned.
+│   └── .gitignore // gitignored. Using alpaca-cleaned.
 ├── README.md
 ├── assets
 │   ├── Comparison.png
@@ -36,7 +36,7 @@ This is the Introduction of our repository, for the project-1 of natural languag
 ├── finetune_masked.ipynb   // calculate output loss only.
 ├── finetune_unmasked.ipynb // calculate the whole sequence.
 ├── model
-│   ├── // Will be given by outer link.
+│   └── .gitignore // Will be given by outer link.
 ├── report.pdf
 └── tensorboard_events
     ├── masked_finetune_tfb // output loss only result.
