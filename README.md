@@ -52,7 +52,7 @@ We will provide links for our **output-loss only finetuned** model and **whole s
 
 [download links by Baidu NetDisk, password 1234](https://pan.baidu.com/s/1o4LLaOw-bQMsreTjEfXlOQ?pwd=1234)
 
-[download links by SJTU jBox, students and staff only](https://jbox.sjtu.edu.cn/l/q1hwDo)
+[download links by SJTU jBox, students and staff only, no dataset and base model](https://jbox.sjtu.edu.cn/l/q1hwDo)
 
 ## Important notifications
 
