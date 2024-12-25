@@ -46,6 +46,10 @@ This is the Introduction of our repository, for the project-1 of natural languag
 
 ```
 
+## report
+
+Presented in `report.pdf`.
+
 ## Finetuned model link
 
 We will provide links for our **output-loss only finetuned** model and **whole sequence model** by the following links(named **masked** and **unmasked**):
