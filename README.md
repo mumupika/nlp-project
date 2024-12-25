@@ -4,7 +4,7 @@ This is the Introduction of our repository, for the project-1 of natural languag
 
 ## Result
 
-[img](./assets/Comparison.png)
+![img](./assets/Comparison.png)
 
 ## File Structure
 
