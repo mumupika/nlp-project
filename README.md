@@ -70,7 +70,7 @@ We will provide links for our **output-loss only finetuned** model and **whole s
 4. After you downloaded the model, you can put the model at the following structure:
 
 ```c
-.
+/model
 ├── input       // The base model.
 │   └── qwen2.5
 │       └── transformers
