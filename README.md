@@ -2,6 +2,10 @@
 
 This is the Introduction of our repository, for the project-1 of natural language process (CS3602).
 
+## Result
+
+[img](./assets/Comparison.png)
+
 ## File Structure
 
 ```c
