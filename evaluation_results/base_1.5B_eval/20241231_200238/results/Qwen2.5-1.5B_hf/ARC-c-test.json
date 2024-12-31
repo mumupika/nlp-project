@@ -1,0 +1,5 @@
+{
+    "accuracy - clean": 35.49939831528279,
+    "accuracy - input contaminated": 49.056603773584904,
+    "accuracy - input-and-label contaminated": 41.281138790035584
+}
