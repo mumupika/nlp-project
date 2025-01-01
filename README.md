@@ -4,7 +4,13 @@ This is the Introduction of our repository, for the project-1 of natural languag
 
 ## Result
 
-![img](./assets/Comparison.png)
+### Pure sft full finetune
+
+![img](./nlp-project1/assets/Comparison.png)
+
+### Lora fine tune 1.5B
+
+![img](./nlp-project1/assets/classical_lora.png)
 
 ## To developers
 
