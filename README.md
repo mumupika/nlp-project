@@ -6,6 +6,10 @@ This is the Introduction of our repository, for the project-1 of natural languag
 
 ![img](./assets/Comparison.png)
 
+## To developers
+
+For those who maintaining the project, please be aware that you should work under the directories that you are **respond to**.
+
 ## File Structure
 
 **The project now is under constructions so the structure will be released soon.**
