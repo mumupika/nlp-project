@@ -1,7 +1,16 @@
 from abc import ABC, abstractmethod
 from typing import Union, Literal
 from pathlib import Path
-import json
+import os
+from langchain_community.document_loaders import JSONLoader, TextLoader
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import Chroma
+from langchain.text_splitter import CharacterTextSplitter
+
+os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
+
+
+
 class Colored:
     __COLORED_CODE = {
         'default': '\033[0m',
@@ -28,7 +37,8 @@ class ChatModelBase(ABC):
             data_base_path (str|Path): The path to the database file
         '''
         super().__init__()
-        self.__data_base_path = data_base_path
+        self.database=None
+        self.__load_data_base(data_base_path)
         self.MAX_HISTORY_LEN = 30
     
     @abstractmethod
@@ -46,23 +56,38 @@ class ChatModelBase(ABC):
         '''
         raise NotImplementedError
     
-    def load_data_base(self):
-        #TODO: 加载数据集怎么做得更好些，应当用另一个history来帮助(如果让用API的话), 否则计划直接塞进prompt/history里。
-        # debug(reply)
-        if self.__data_base_path is None: return
-        history:list[dict[str, str]] = []
-        with open(self.__data_base_path, 'r', encoding='utf-8') as f:
-            while f.readable():
-                l = f.readline()
-                if l=='': break
-                obj:dict[str] = json.loads(l)
-                history += [
-                    {'role':'user', 'content': obj['input']},
-                    {'role':'assistant', 'content': obj['answers'][0]},
-                ]
-                # debug(q_a)
-        self.MAX_HISTORY_LEN = len(history)//2+10
-        return history
+    def __load_data_base(self, data_base_path:Path = None):
+        # 路径检查
+        if data_base_path is None: return
+        if not isinstance(data_base_path, Path):
+            data_base_path = Path(data_base_path)
+        data_base_path = data_base_path.absolute()
+        if not data_base_path.exists():
+            raise FileNotFoundError(f'File {data_base_path} not exist')
+        
+        if data_base_path.name[-6:]=='.jsonl':
+            # JSONLoader加载json数据
+            loader = JSONLoader(
+                data_base_path, 
+                jq_schema='{question: .input, answer: .answers[0], meta: .meta}', 
+                json_lines=True,
+                text_content=False
+            )
+        elif data_base_path.name[-4:]=='.txt':
+            # TextLoader加载普通文字
+            loader = TextLoader(data_base_path, encoding='utf-8')
+        
+        # 读取、切割
+        splitter = CharacterTextSplitter(chunk_size=128, chunk_overlap=0)    
+        documents = splitter.split_documents(loader.load())
+        # 向量化、存变量
+        embeddings = HuggingFaceEmbeddings(
+            model_name = "moka-ai/m3e-base",
+            model_kwargs = {'device':'cpu'},
+            encode_kwargs = {'normalize_embeddings': True},
+            # query_instruction = '为json生成向量表示用于文本检索'
+        )
+        self.database = Chroma.from_documents(documents, embeddings)
         
                  
     @abstractmethod
