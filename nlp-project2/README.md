@@ -2,5 +2,5 @@
 
 usage:
 ```python
-python main.py [--model <your_model>] [--db <your_databsase>]
+python main.py [--model <your_model>] [--db <your_databsase>] [--character <your_character>]
 ```
