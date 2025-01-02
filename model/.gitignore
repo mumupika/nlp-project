@@ -1,5 +1,2 @@
-masked.zip
-unmasked.zip
-input
-masked
-unmasked
+model_qwen
+checkpoint-*
