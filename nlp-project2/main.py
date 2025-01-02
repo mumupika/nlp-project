@@ -6,13 +6,16 @@ WAITING = 'Waiting...'
 def mainloop():
     # 解析命令行参数
     parser = ArgumentParser()
-    parser.add_argument('--model', type=str, default='base')
+    parser.add_argument('--character', type=str, default='base')
+    parser.add_argument('--model', type=str, default=None)
     parser.add_argument('--db', type=str, default=None) #E:\python_works\AILAB\DB-GPT\UltraDomain\cs.jsonl
     args = parser.parse_args()
     # 加载模型、Tokenizer
     # tokenizer = AutoTokenizer.from_pretrained() #TODO: 加载tokenizer，可能不在这写
     #model, reply, history = init_model(args.model, args.database) #TODO: 在这个函数里，我们根据参数先行“调教”
-    model, _, history = init_model(args.model, args.db)\
+    if args.db is not None:
+        args.db = 'E:\\python_works\\AILAB\\DB-GPT\\UltraDomain\\{}.jsonl'.format(args.db)
+    model, _, history = init_model(args.model, args.db, args.character)
     # 主循环
     color = Colored('yellow')
     while True:
