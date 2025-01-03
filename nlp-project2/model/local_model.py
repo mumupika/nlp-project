@@ -110,7 +110,7 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import re
 from base import ABC, ChatModelBase, Path, Union, debug
-import torch
+import torch, yaml
 from peft import PeftModel
 
 
@@ -123,24 +123,23 @@ from peft import PeftModel
 #     {"role": "system", "content": "Here is the new question:"},
 #     {"role": "user", "content": content},
 # ]
-MODEL_SETTING = {
-    k:v.strip() for k,v in {
-    "base": "This is a conversation between an AI assistant and a User in a System. "
-            "The AI \"assistant\" should just answer the questions for the \"user\" according to the settings and given knowledges from \"system\". "
-            "Please end with \".\" or \"!\" or \"?\".",
-    "cat": "This is a conversation between a smart AI cat who speaks English(you) and a User."
-            "You, the AI assistant who is like a cat, should answer the questions from the User according to the settings of \"system\". "
-            "Please end with \".\" or \"!\" or \"?\". ",
-}.items()}
+with open(
+    Path(__file__).absolute().parent/'character_settings.yaml', 
+    encoding='utf-8'
+) as chs:
+    CHARACTER_SETTING = yaml.safe_load(chs)
+    # print(CHARACTER_SETTING)
+
+
 USER = "user"
 SYSTEM = "system"
 ASSISTANT = "assistant"
 
 class LocalChat(ChatModelBase, ABC):  
-    __POST_PATTERN = re.compile(r'(.*[\.\?!。？！])(|\n|[^A-Za-z0-9\.\?!。？！])?')
+    __POST_PATTERN = re.compile(r'(.*[,\.\?!，。？！])(|\n|[^A-Za-z0-9\.\?!。？！])?')
     # __POST_PATTERN_LAST = re.compile(r'(*)')
     def __init__(
-        self, model_path:str = './checkpoint-38820', 
+        self, model_path:Union[str, tuple[str,str]] = './checkpoint-38820', 
         data_base_path:Union[str, Path]=None,
         character = 'base'
     ):
@@ -160,7 +159,8 @@ class LocalChat(ChatModelBase, ABC):
         if isLora:
             base_model_path = str(model_path[1]) #base
             model_path = str(model_path[0]) #lora
-        self.__BASE_CHAT = MODEL_SETTING[character]
+        self.__BASE_CHAT = CHARACTER_SETTING[character]['init_prompt']
+        self.__INIT_HISTORY = CHARACTER_SETTING[character]['init_history']
         self.__tokenizer = AutoTokenizer.from_pretrained(model_path)
         self.__device = 'cuda' if torch.cuda.is_available() else 'cpu'
         if not isLora:
@@ -200,10 +200,15 @@ class LocalChat(ChatModelBase, ABC):
         chat_list = []
         if self.database is not None:
             knowledges = self.database.similarity_search(prompt)
+            debug(knowledges, color='blue')
             klg_str=''
             for item in knowledges:
-                item = eval(item.model_dump()['page_content'])
-                klg_str += f'question: {item["question"]}\nanswer: {item["answer"]} According to {item["meta"]}\n'
+                c = item.model_dump()['page_content']
+                try:
+                    item = eval(c)
+                    klg_str += f'question: {item["question"]}\nanswer: {item["answer"]} According to {item["meta"]}\n'
+                except:
+                    klg_str += c
             chat_list = [{'role': SYSTEM, 'content': 'Here list some knowledges that the assistant knew: \n'+klg_str}]
         
         chat_list += self.__add_history(history) + [
@@ -248,11 +253,14 @@ class LocalChat(ChatModelBase, ABC):
         return reply, history
     
     def initialize(self):
-        # history = [
-        #     {"role": USER, "content": "Can you tell me where SJTU is?"},
-        #     {"role": ASSISTANT, "content": "SJTU(Shanghai JiaoTong University) is at Shanghai. This is a great university."},
-        # ]
-        # return "Sure! Tsinghua University is at Beijing. ", history
-        return "", []
+        reply = ''
+        history = []
+        for obj in self.__INIT_HISTORY:
+            history += [
+                {'role': role, 'content': content}
+                for role, content in obj.items()
+            ]
+            reply = obj['assistant']
+        return reply, history
     
         
