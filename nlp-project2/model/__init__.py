@@ -10,7 +10,7 @@ from base import ChatModelBase, Colored
 sys.path.pop()
 PROJ_DIR = Path(__file__).absolute().parents[1]
 CHECKPOINTS = {
-    'default': PROJ_DIR/'checkpoint-38820',
+    'base': PROJ_DIR/'checkpoint-38820',
     'lora': (PROJ_DIR/'checkpoint-17254', PROJ_DIR/'Qwen2.5-1.5B')
 }
 # print(LOCAL_MODEL_CHECKPOINT), exit(0)
@@ -30,10 +30,8 @@ def init_model(model:str = None, database:str=None, character:str = 'base')->tup
         reply, history = res_model.initialize()
         return res_model, reply, history
 
-    if model is None:
-        res_model = LocalChat(character = character, model_path=CHECKPOINTS['default'], data_base_path=database)
-    elif model=='lora':
-        res_model = LocalChat(character = character, model_path=CHECKPOINTS['lora'], data_base_path=database)
+    model = model if model in CHECKPOINTS else 'base'
+    res_model = LocalChat(character = character, model_path=CHECKPOINTS[model], data_base_path=database)
     
     reply, history = res_model.initialize()
     return res_model, reply, history
