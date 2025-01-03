@@ -5,7 +5,7 @@ import os
 from langchain_community.document_loaders import JSONLoader, TextLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
-from langchain.text_splitter import CharacterTextSplitter
+from langchain.text_splitter import TokenTextSplitter
 
 os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
 
@@ -78,7 +78,7 @@ class ChatModelBase(ABC):
             loader = TextLoader(data_base_path, encoding='utf-8')
         
         # 读取、切割
-        splitter = CharacterTextSplitter(chunk_size=128, chunk_overlap=0)    
+        splitter = TokenTextSplitter(chunk_size=128, chunk_overlap=10)    
         documents = splitter.split_documents(loader.load())
         # 向量化、存变量
         embeddings = HuggingFaceEmbeddings(
