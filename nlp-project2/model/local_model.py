@@ -107,10 +107,11 @@
 #         return self.chat( "Expert, I have some questions to ask you. Can you give me a hand?")
 
     
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import re
 from base import ABC, ChatModelBase, Path, Union, debug
-import torch
+import torch, yaml
+from peft import PeftModel
 
 
 
@@ -122,22 +123,25 @@ import torch
 #     {"role": "system", "content": "Here is the new question:"},
 #     {"role": "user", "content": content},
 # ]
-MODEL_SETTING = {
-    k:v.strip() for k,v in {
-    "base": "This is a conversation between an AI assistant and a User in a System. The AI \"assistant\" should answer the questions for the \"user\" according to the settings of \"system\".",
-    "cat": "This is a conversation between a smart AI cat who speaks English(you) and a User. You, the AI assistant who is like a cat, should answer the questions from the User.",
-}.items()}
+with open(
+    Path(__file__).absolute().parent/'character_settings.yaml', 
+    encoding='utf-8'
+) as chs:
+    CHARACTER_SETTING = yaml.safe_load(chs)
+    # print(CHARACTER_SETTING)
+
+
 USER = "user"
 SYSTEM = "system"
 ASSISTANT = "assistant"
 
 class LocalChat(ChatModelBase, ABC):  
-    __POST_PATTERN = re.compile(r'(.*[\.\?!。？！])(|\n|[^A-Za-z0-9\.\?!。？！])?')
+    __POST_PATTERN = re.compile(r'(.*[,\.\?!，。？！])(|\n|[^A-Za-z0-9\.\?!。？！])?')
     # __POST_PATTERN_LAST = re.compile(r'(*)')
     def __init__(
-        self, model:str = 'base', 
+        self, model_path:Union[str, tuple[str,str]] = './checkpoint-38820', 
         data_base_path:Union[str, Path]=None,
-        model_path = './checkpoint-38820'
+        character = 'base'
     ):
         ''' Chat Model Base Constructor
         
@@ -151,10 +155,21 @@ class LocalChat(ChatModelBase, ABC):
         # self.__BASE_CHAT = [
         #     {"role": "system", "content": MODEL_SETTING[model]},
         # ]
-        self.__BASE_CHAT = MODEL_SETTING[model]
+        isLora = isinstance(model_path, tuple)
+        if isLora:
+            base_model_path = str(model_path[1]) #base
+            model_path = str(model_path[0]) #lora
+        self.__BASE_CHAT = CHARACTER_SETTING[character]['init_prompt']
+        self.__INIT_HISTORY = CHARACTER_SETTING[character]['init_history']
         self.__tokenizer = AutoTokenizer.from_pretrained(model_path)
         self.__device = 'cuda' if torch.cuda.is_available() else 'cpu'
-        self.__model = AutoModelForCausalLM.from_pretrained(model_path, device_map = self.__device)  
+        if not isLora:
+            self.__model = AutoModelForCausalLM.from_pretrained(model_path, device_map = self.__device)
+        else:
+            base_model = AutoModelForCausalLM.from_pretrained(base_model_path, device_map = self.__device)
+            self.__model = PeftModel.from_pretrained(base_model, model_path, device_map = self.__device)
+            
+        # self.__streamer = TextStreamer(self.__tokenizer)
     
     def __add_history(self, history:list[dict[str,str]] = None)->list[dict[str,str]]:
         if history is None or len(history)==0:
@@ -173,7 +188,6 @@ class LocalChat(ChatModelBase, ABC):
         ---
             out (tuple[str, list[str]]): the `reply` and `history`
         '''
-        # TODO: 结合知识库
         # prompt += 'Please use \"*hzw*\" as the end of reply.'
         answer_max_len = 2*len(prompt)
         # 1. 历史限制
@@ -183,11 +197,24 @@ class LocalChat(ChatModelBase, ABC):
             history.pop(0)
             history.pop(0)
         # 2. 生成prompt
-        chat_list = self.__add_history(history) + [
+        chat_list = []
+        if self.database is not None:
+            knowledges = self.database.similarity_search(prompt)
+            debug(knowledges, color='blue')
+            klg_str=''
+            for item in knowledges:
+                c = item.model_dump()['page_content']
+                try:
+                    item = eval(c)
+                    klg_str += f'question: {item["question"]}\nanswer: {item["answer"]} According to {item["meta"]}\n'
+                except:
+                    klg_str += c
+            chat_list = [{'role': SYSTEM, 'content': 'Here list some knowledges that the assistant knew: \n'+klg_str}]
+        
+        chat_list += self.__add_history(history) + [
             {'role': SYSTEM, 'content': 'Here comes new conversations:'},
             {'role': USER, 'content': prompt}
         ]
-        
         chat_inputs = self.__BASE_CHAT + self.__tokenizer.apply_chat_template(chat_list, tokenize=False, add_generation_prompt=True)
         # 3. 喂给模型    
         inputs = self.__tokenizer([chat_inputs], return_tensors="pt", add_special_tokens=True).to(self.__device)
@@ -207,9 +234,7 @@ class LocalChat(ChatModelBase, ABC):
         L = len(chat_list)
         
         debug('chat_inputs--------\n', chat_inputs, color='yellow')
-        # debug("reply: -----\n", reply), input('debugging out')
-        # debug("-----")
-        
+
         # 4. 答案处理
         reply = reply[len(chat_inputs)-len('<|im_end|>')*L - len('<|im_start|>')*(L+1):]
         
@@ -228,11 +253,14 @@ class LocalChat(ChatModelBase, ABC):
         return reply, history
     
     def initialize(self):
-        history = self.load_data_base() or []
-        history += [
-            {"role": USER, "content": "Can you tell me where SJTU is?"},
-            {"role": ASSISTANT, "content": "SJTU(Shanghai JiaoTong University) is at Shanghai. This is a great university."},
-        ]
-        return "Sure! Tsinghua University is at Beijing. ", history
+        reply = ''
+        history = []
+        for obj in self.__INIT_HISTORY:
+            history += [
+                {'role': role, 'content': content}
+                for role, content in obj.items()
+            ]
+            reply = obj['assistant']
+        return reply, history
     
         
