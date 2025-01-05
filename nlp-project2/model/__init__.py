@@ -16,15 +16,18 @@ CHECKPOINTS = {
 # print(LOCAL_MODEL_CHECKPOINT), exit(0)
 
 def init_model(model:str = None, database:str=None, character:str = 'base')->tuple[ChatModelBase, str, list[str]]:
-    '''
-    初始化模型
-    
+    """get the initial model
+
     Params:
     ---
-        model (str): 模型类型，是基础版还是增强版，默认是none（基础版）
-        database (str): 知识库，默认是none
-        character (str): 模型性格。默认是base。
-    '''
+        model (str, optional): type of model, could be `base`/`lora`/`api` etc. Defaults to None as base.
+        database (str, optional): path of your database file. Defaults to None.
+        character (str, optional): character of model. Defaults to 'base'.
+
+    Returns:
+    ---
+        tuple[ChatModelBase, str, list[str]]: model, base_reply, base_history
+    """
     if model=='api':
         res_model = APIChat(data_base_path=database)
         reply, history = res_model.initialize()
