@@ -1,6 +1,8 @@
 import requests, json
 from base import ABC, ChatModelBase, Path, Union
 
+API_KEY = "your_api_key"
+
 class APIChat(ChatModelBase, ABC):
     def __init__(
         self, model_url:str = "https://api.siliconflow.cn/v1/chat/completions", 
@@ -9,7 +11,7 @@ class APIChat(ChatModelBase, ABC):
         super().__init__(data_base_path=data_base_path)
         self.__url = model_url
         self.__headers = {
-            "Authorization": "Bearer sk-dxooypfhkpuqjyumyolguzchqpswxwrjgkjfwpvxksebvtjq",
+            "Authorization": f"Bearer {API_KEY}",
             "Content-Type": "application/json"
         }
     
