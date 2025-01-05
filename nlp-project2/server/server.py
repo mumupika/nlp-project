@@ -1,5 +1,6 @@
 from pathlib import Path
 WEB_DIR = Path(__file__).absolute().parent/'web'
+DB_DIR = Path(__file__).absolute().parents[1]/'database'
 import sys
 sys.path.append(str(WEB_DIR.parents[1]))
 from model import init_model, ChatModelBase
@@ -34,7 +35,7 @@ class Handler(BaseHTTPRequestHandler):
         model = args.get('model', None)
         database = args.get('db', None)
         if database is not None:
-            database = 'E:\\python_works\\AILAB\\DB-GPT\\UltraDomain\\{}.jsonl'.format(database)
+            database = DB_DIR/database
         character = args.get('character', 'base')
         # print(self.address_string())
         if self.address_string() not in self.USER_MODEL:
@@ -59,7 +60,7 @@ class Handler(BaseHTTPRequestHandler):
         reply = ''
         user_prompt = self.rfile.read(int(self.headers['content-length'])).decode()
         print(user_prompt)
-        if user_prompt=='\\quit':
+        if user_prompt=='\\quit' or user_prompt=='\\quit\n':
             if self.address_string() in self.USER_MODEL:
                 self.USER_MODEL.pop(self.address_string())
                 print(f'user {self.address_string()} quit, len: {len(self.USER_MODEL)}')
@@ -81,4 +82,3 @@ if __name__=='__main__':
     httpd = HTTPServer(addr_port, Handler)
     print(f'Please visit http://{addr_port[0]}:{addr_port[1]}/WebClientPage.html?model=lora')
     httpd.serve_forever()
-

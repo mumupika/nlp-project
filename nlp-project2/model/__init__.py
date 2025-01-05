@@ -38,4 +38,3 @@ def init_model(model:str = None, database:str=None, character:str = 'base')->tup
     
     reply, history = res_model.initialize()
     return res_model, reply, history
-    

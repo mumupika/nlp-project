@@ -39,14 +39,21 @@ SEND_BUTTON.onclick = ()=>{
     // 内容
     var user_content = INPUT.value;
     INPUT.value = '';
-    if(user_content=='\\quit'){
-        var httpRequest = new XMLHttpRequest();
-        httpRequest.open('POST', SERVER_URL, true);
-        httpRequest.setRequestHeader("Content-type", "text/plain");
-        httpRequest.setRequestHeader("Content-length", user_content.length);
-        httpRequest.send('\\quit');
-        httpRequest.onreadystatechange = function () {window.close();};
-    }
+    // if(user_content=='\\quit'){
+        // alert('请不要输入\\quit，直接离开')
+        // var httpRequest = new XMLHttpRequest();
+        // httpRequest.open('POST', SERVER_URL, true);
+        // httpRequest.setRequestHeader("Content-type", "text/plain");
+        // httpRequest.setRequestHeader("content-length", user_content.length);
+        // httpRequest.send('\\quit');
+        // httpRequest.onreadystatechange = function () {window.close();};
+        // setTimeout(()=>{
+        //     window.opener = null;
+        //     window.open('','_self');
+        //     window.close();
+        // }, 1000);
+        // return;
+    // }
     console.log(user_content);
     // 连接服务器
     var httpRequest = new XMLHttpRequest();
@@ -65,15 +72,21 @@ SEND_BUTTON.onclick = ()=>{
         }
     };
 }
+keys = [null, null];
+INPUT.addEventListener('keydown', (ev)=>{
+    keys = [keys[1], ev.key];
+    if(keys[0]=='Control'&&keys[1]=='Enter')
+        SEND_BUTTON.onclick(null);
+});
 // 离开quit
-window.addEventListener('beforeunload', (ev)=>{
-    ev.preventDefault();
-    var httpRequest = new XMLHttpRequest();
-    httpRequest.open('POST', SERVER_URL, true);
-    httpRequest.setRequestHeader("Content-type", "text/plain");
-    httpRequest.setRequestHeader("Content-length", user_content.length);
-    httpRequest.send('\\quit');
-    httpRequest.onreadystatechange = function () {window.close();};
-    alert('您真的要离开？');
-    return 'really want to quit?'
-})
+// window.addEventListener('beforeunload', (ev)=>{
+//     ev.preventDefault();
+//     var httpRequest = new XMLHttpRequest();
+//     httpRequest.open('POST', SERVER_URL, true);
+//     httpRequest.setRequestHeader("Content-type", "text/plain");
+//     httpRequest.setRequestHeader("Content-length", user_content.length);
+//     httpRequest.send('\\quit');
+//     httpRequest.onreadystatechange = function () {};
+//     // alert('您真的要离开？');
+//     return 'really want to quit?'
+// })
