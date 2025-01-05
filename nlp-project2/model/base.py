@@ -9,8 +9,6 @@ from langchain.text_splitter import TokenTextSplitter
 
 os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
 
-
-
 class Colored:
     __COLORED_CODE = {
         'default': '\033[0m',
@@ -19,23 +17,41 @@ class Colored:
         'yellow': '\033[33m',
         'blue': '\033[34m',
     }
-    def __init__(self, color:Literal['red', 'green', 'blue', 'default', 'yellow'] = 'default'): self.set(color)
+    def __init__(self, color:Literal['red', 'green', 'blue', 'default', 'yellow'] = 'default'): 
+        """set the color for later `print`
+
+        Params:
+        ---
+            color (Literal[&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;, &#39;default&#39;, &#39;yellow&#39;], optional): the color you choose. Defaults to 'default'.
+        
+        Examples:
+        ---
+            >>> with Colored('red'):
+            ...     print(1)
+            1
+            >>> color = Colored('yellow')
+            >>> print(2)
+            >>> color.set('red')
+            >>> print(3)
+        """
+        self.set(color)
     def __enter__(self): return self
     def __exit__(self, *args, **kwargs): self.set('default')
     def set(self, color:Literal['red', 'green', 'blue', 'default', 'yellow'] = 'default'): print(self.__COLORED_CODE[color], end='')
         
 def debug(*args, color = 'green', **kwargs):
+    """debug out. delete "#" to use."""
     # with Colored(color) as color_ctrl: print(*args, **kwargs), color_ctrl.set('red'), input('\n@hzw: input something to continue...')
     pass
     
 class ChatModelBase(ABC):
     def __init__(self, data_base_path:Union[str, Path] = None):
-        ''' Chat Model Base Constructor
+        """Chat Model Base Constructor
         
         Params:
         ---
-            data_base_path (str|Path): The path to the database file
-        '''
+            data_base_path (Union[str, Path], optional): The path to the database file. Defaults to None.
+        """
         super().__init__()
         self.database=None
         self.__load_data_base(data_base_path)
@@ -48,7 +64,7 @@ class ChatModelBase(ABC):
         Params:
         ---
             prompt (str): The given prompt
-            history (list[str]): The conversation history
+            history (list[str]): The conversation history. Defaults to None.
         
         Returns:
         ---
@@ -76,6 +92,8 @@ class ChatModelBase(ABC):
         elif data_base_path.name[-4:]=='.txt':
             # TextLoader加载普通文字
             loader = TextLoader(data_base_path, encoding='utf-8')
+        else:
+            raise RuntimeError("Cannot accept other documents")
         
         # 读取、切割
         splitter = TokenTextSplitter(chunk_size=128, chunk_overlap=10)    
@@ -102,6 +120,7 @@ class ChatModelBase(ABC):
     #     'others': '你是一个性格为{}的小助手，我要和你进行对话。听懂了就可以了。'
     #     #TODO: 更多性格的调教
     # }
+    
     # EXTRACT_PROMPT_TEMPLATE = (
     # "A question is provided below. Given the question, extract up to "
     # "keywords from the text. Focus on extracting the keywords that we can use "
