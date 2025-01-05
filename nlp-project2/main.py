@@ -10,8 +10,9 @@ def mainloop():
     parser.add_argument('--model', type=str, default=None)
     parser.add_argument('--db', type=str, default=None) #E:\python_works\AILAB\DB-GPT\UltraDomain\cs.jsonl
     args = parser.parse_args()
-    model, _, history = init_model(args.model, args.db, args.character)
+    
     # 主循环
+    model, _, history = init_model(args.model, args.db, args.character)
     color = Colored('yellow')
     while True:
         color.set('yellow')
