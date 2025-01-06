@@ -2,6 +2,25 @@
 
 本项目为NLP-project-2的实现.
 
+## 仓库结构
+.
+├── README.md
+├── main.py
+├── model
+│   ├── __init__.py
+│   ├── api_model.py
+│   ├── base.py
+│   ├── character_settings.yaml
+│   └── local_model.py
+├── model_test
+│   ├── test outcome, ends with .txt
+│   └── test programs, ends with .py
+└── server
+    ├── server.py
+    └── web
+        └── ...
+
+        
 ## 环境配置
 
 ```shell
