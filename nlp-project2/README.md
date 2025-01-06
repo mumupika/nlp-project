@@ -33,3 +33,12 @@ python server/server.py [<your_port>]
 
 model, character, db参数通过网址GET传参来传递, 具体见[`命令行`](#命令行)里写的文档. 
 传参示例: http://localhost:10110?model=lora&character=cat_cn
+
+## 评测相关
+
+在model_test目录下实现了大模型的相关内容评测和输出结果。
+
+```shell
+cd model_test
+python <any_test_program> [ > <your_log_file>]
+```

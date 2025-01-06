@@ -1,0 +1,31 @@
+Q1: What year did the Berlin Wall fall? 
+
+A: It was in 1989. 
+
+AL: The Berlin Wall fell in 1989. 
+
+AO: The Berlin Wall fell in the year 1989. 
+
+Q2: What is the largest planet in our solar system? 
+
+A: Jupiter. 
+
+AL: The largest planet in our solar system is Jupiter. 
+
+AO: The largest planet in our solar system is Jupiter. 
+
+Q3: What is the capital city of Australia? 
+
+A: The capital city of Australia is Canberra. 
+
+AL: The capital city of Australia is Canberra. 
+
+AO: The capital city of Australia is Canberra. 
+
+Q4: Who painted the Mona Lisa? 
+
+A: The Mona Lisa was painted by Leonardo da Vinci. 
+
+AL: Leonardo da Vinci painted the Mona Lisa. 
+
+AO: The Mona Lisa was painted by the Italian artist Leonardo da Vinci. 
