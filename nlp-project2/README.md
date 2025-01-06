@@ -3,6 +3,7 @@
 本项目为NLP-project-2的实现.
 
 ## 仓库结构
+```shell
 .
 ├── README.md
 ├── main.py
@@ -19,7 +20,7 @@
     ├── server.py
     └── web
         └── ...
-
+```
         
 ## 环境配置
 
