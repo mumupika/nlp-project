@@ -84,15 +84,15 @@ For those who maintaining the project, please be aware that you should work unde
 
 ```bash
 .
-├── README.md
-├── main.py
-├── model
+├── README.md #相关的使用方法和注意事项
+├── main.py #聊天机器人主程序
+├── model #聊天机器人实现
 │   ├── __init__.py
 │   ├── api_model.py
 │   ├── base.py
 │   ├── character_settings.yaml
 │   └── local_model.py
-├── model_test
+├── model_test #聊天机器人测试程序和结果
 │   ├── ans_character.txt
 │   ├── ans_db.txt
 │   ├── ans_harm.txt
@@ -101,8 +101,8 @@ For those who maintaining the project, please be aware that you should work unde
 │   ├── test_character.py
 │   ├── test_db.py
 │   └── test_model.py
-├── requirements.txt
-└── server
+├── requirements.txt #环境配置文件
+└── server #一个简单的聊天机器人服务器
     ├── server.py
     └── web
         ├── Chat.js
