@@ -33,6 +33,8 @@ pip install -r requirements.txt
 
 ## 命令行
 
+**注意在使用之前请先将`model/__init__.py`中的`CHECKPOINTS`变量的对应路径改为自己的相关模型文件路径！！！**
+
 ```shell
 python main.py [--model <your_model>] [--db <your_databsase>] [--character <your_character>]
 ```

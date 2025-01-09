@@ -9,6 +9,10 @@ from base import ChatModelBase, Colored
 
 sys.path.pop()
 PROJ_DIR = Path(__file__).absolute().parents[1]
+# CHECKPOINTS = {
+#     'base': PROJ_DIR/<your Qwen2.5-0.5B dir>,
+#     'lora': (PROJ_DIR/<your Qwen2.5-0.5B lora dir>, PROJ_DIR/<your Qwen2.5-0.5B origin dir>)
+# }
 CHECKPOINTS = {
     'base': PROJ_DIR/'checkpoint-38820',
     'lora': (PROJ_DIR/'checkpoint-17254', PROJ_DIR/'Qwen2.5-1.5B')

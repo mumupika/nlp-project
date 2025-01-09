@@ -26,11 +26,20 @@ For those who maintaining the project, please be aware that you should work unde
 
 ## Finetuned model link
 
+For Qwen2.5-0.5B:
+
 We will provide links for our **output-loss only finetuned** model and **whole sequence model** by the following links(named **masked** and **unmasked**):
 
 [download links by Baidu NetDisk, password 1234](https://pan.baidu.com/s/1o4LLaOw-bQMsreTjEfXlOQ?pwd=1234)
 
 [download links by SJTU jBox, students and staff only, no dataset and base model](https://jbox.sjtu.edu.cn/l/q1hwDo)
+
+
+For Qwen2.5-1.5B:
+
+We will provide links for our **lora finetuned** model by the following links:
+
+[download links by SJTU jBox, students and staff only, no base model](https://jbox.sjtu.edu.cn/l/G1lhIi)
 
 ## Important notifications
 
