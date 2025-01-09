@@ -16,6 +16,7 @@
 ├── model_test
 │   ├── test outcome, ends with .txt
 │   └── test programs, ends with .py
+├── requirements.txt
 └── server
     ├── server.py
     └── web
